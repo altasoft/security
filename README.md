@@ -2,9 +2,12 @@
 
 ASP.NET:
 
->Install-Package Altasoft.Owin.Authentication.Jwt
+```
+Install-Package Altasoft.Owin.Authentication.Jwt
+```
 
 ASP.NET Core:
 
->Altasoft.AspNetCore.Authentication.Jwt
-
+```
+Altasoft.AspNetCore.Authentication.Jwt
+```
