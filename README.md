@@ -1,13 +1,3 @@
 # security
 
-ASP.NET:
-
-```
-Install-Package Altasoft.Owin.Authentication.Jwt
-```
-
-ASP.NET Core:
-
-```
-Install-Package Altasoft.AspNetCore.Authentication.Jwt
-```
+Contains various security and authorization libraries for .NET.
