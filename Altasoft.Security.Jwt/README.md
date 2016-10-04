@@ -61,6 +61,68 @@ var token = JWTTokenProvider.ValidateToken(jwtTokenString, new TokenValidationPa
 
 ### Usage
 
+*Startup.cs*
+```C#
+// Bearer:
+
+app.UseJwtBearerAuthentication(new JwtBearerOptions
+{
+    AutomaticAuthenticate = true,
+    AutomaticChallenge = true,
+    TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = JWTTokenProvider.GetSecurityKey("1234567890123456"),
+
+        ValidateIssuer = true,
+        ValidIssuer = "altasoft",
+
+        ValidateAudience = true,
+        ValidAudience = "any",
+
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero
+    }
+});
+
+
+
+// Cookie:
+
+app.UseCookieAuthentication(new CookieAuthenticationOptions
+{
+    AutomaticAuthenticate = true,
+    AutomaticChallenge = true,
+    CookieName = "JWTCookie",
+    AuthenticationScheme = "Cookie",
+    SlidingExpiration = true,
+    ExpireTimeSpan = TimeSpan.FromSeconds(30),
+    TicketDataFormat = new JWTTicketCookieDataFormat(
+        new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = JWTTokenProvider.GetSecurityKey("1234567890123456"),
+
+            ValidateIssuer = true,
+            ValidIssuer = "altasoft",
+
+            ValidateAudience = true,
+            ValidAudience = "any",
+
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        },
+        new JWTCookieOptions()
+        {
+            AuthenticationScheme = "Cookie",
+            Issuer = "altasoft",
+            Audience = "any",
+            ExpiresInSeconds = 300,
+            SecretKey = "1234567890123456"
+        })
+});
+```
+
 
 <br/>
 ## JWT Token For ASP.NET
