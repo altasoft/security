@@ -22,20 +22,19 @@ namespace SimpleJwtExample
                 var claims = new List<Claim>()
                 {
                     new Claim(ClaimTypes.Name, "usr"),
-                    //new Claim("mail", "test@mail.com")
+                    new Claim("mail", "test@mail.com")
                 };
 
                 var now = DateTime.Now;
 
                 var jwtToken = JWTTokenProvider.GenerateToken(new JWTTokenOptions()
                 {
-                    JwtId = () => "1",
+                    JwtId = () => Guid.NewGuid().ToString(),
                     Issuer = "altasoft",
                     Audience = "any",
                     IssuedAt = now,
                     NotBefore = now,
-                    //Expires = now.AddMinutes(5),
-                    Expires = now.AddSeconds(1),
+                    Expires = now.AddMinutes(5),
                     Claims = claims,
                     SecretKey = "1234567890123456"
                 });
@@ -57,9 +56,15 @@ namespace SimpleJwtExample
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = JWTTokenProvider.GetSecurityKey(jwtSecretKey),
 
-                        ValidateAudience = false,
-                        ValidateIssuer = false,
-                        ValidateLifetime = true
+                        ValidateIssuer = true,
+                        ValidIssuer = "altasoft",
+
+                        ValidateAudience = true,
+                        ValidAudience = "any",
+
+                        ValidateLifetime = true,
+                        ClockSkew = TimeSpan.Zero,
+
                     });
 
                     Console.WriteLine("JWT Token is valid");
