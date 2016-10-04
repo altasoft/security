@@ -18,6 +18,39 @@ Library contanins JWT token generator based on Microsoft's implementation (Syste
 
 ### Usage
 
++ *Generate:*
+
+```C#
+var jwtToken = JWTTokenProvider.GenerateToken(new JWTTokenOptions()
+{
+    JwtId = () => Guid.NewGuid().ToString(),
+    Issuer = "altasoft",
+    Audience = "any",
+    IssuedAt = DateTime.Now,
+    NotBefore = DateTime.Now,
+    Expires = DateTime.Now.AddMinutes(60),
+    Claims = claims,
+    SecretKey = "1234567890123456"
+});
+```
+
++ *Validate:*
+```C#
+var token = JWTTokenProvider.ValidateToken(jwtTokenString, new TokenValidationParameters()
+{
+    ValidateIssuerSigningKey = true,
+    IssuerSigningKey = JWTTokenProvider.GetSecurityKey("1234567890123456"),
+
+    ValidateIssuer = true,
+    ValidIssuer = "altasoft",
+
+    ValidateAudience = true,
+    ValidAudience = "any",
+
+    ValidateLifetime = true,
+    ClockSkew = TimeSpan.Zero
+});
+```
 
 <br/>
 ## JWT Token For ASP.NET Core
