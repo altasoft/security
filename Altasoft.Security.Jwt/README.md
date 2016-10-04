@@ -123,6 +123,34 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions
 });
 ```
 
+<br/>
+*AccountController.cs*
+
+```C#
+// Cookie:
+
+public async Task<IActionResult> Login()
+{
+    // todo: authenticate user
+
+    await Request.HttpContext.Authentication.SignInAsync(
+        jwtAuthConfig.Cookie.AuthenticationScheme,
+        new ClaimsPrincipal(new ClaimsIdentity(BuildCustomClaims())),
+        new AuthenticationProperties()
+        {
+            IssuedUtc = DateTime.UtcNow,
+            ExpiresUtc = DateTime.UtcNow.AddSeconds(300)
+        });
+
+    return Ok();
+}
+
+public async Task Logout()
+{
+    await HttpContext.Authentication.SignOutAsync(jwtAuthConfig.Cookie.AuthenticationScheme);
+}
+```
+
 
 <br/>
 ## JWT Token For ASP.NET
