@@ -159,3 +159,100 @@ public async Task Logout()
 > Install-Package Altasoft.Owin.Authentication.Jwt
 
 ### Usage
+
+*Startup.Auth.cs*
+```C#
+// Bearer:
+
+app.UseOAuthBearerTokens(new OAuthAuthorizationServerOptions
+{
+    AuthenticationType = OAuthDefaults.AuthenticationType,
+    AllowInsecureHttp = true,
+    AccessTokenFormat = new JWTTicketDataFormat(
+        new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            // for bearer must be LOCAL AUTHORITY
+            ValidIssuer = "LOCAL AUTHORITY",
+
+            ValidateAudience = true,
+            ValidAudience = "any",
+
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = JWTTokenProvider.GetSecurityKey("1234567890123456"),
+
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        },
+        new JWTTicketOptions()
+        {
+            // for bearer must be LOCAL AUTHORITY
+            Issuer = "LOCAL AUTHORITY",
+            Audience = "any",
+            ExpiresInSeconds = 300,
+            SecretKey = "1234567890123456"
+        })
+});
+
+
+
+// Cookie:
+
+app.UseCookieAuthentication(new CookieAuthenticationOptions()
+{
+    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+    CookieName = "JWTCookie",
+    CookieHttpOnly = false,
+    SlidingExpiration = true,
+    TicketDataFormat = new JWTTicketCookieDataFormat(
+        new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = "altasoft",
+
+            ValidateAudience = true,
+            ValidAudience = "any",
+
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = JWTTokenProvider.GetSecurityKey("1234567890123456"),
+
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        },
+        new JWTCookieOptions()
+        {
+            Issuer = "altasoft",
+            Audience = "any",
+            ExpiresInSeconds = 300,
+            SecretKey = "1234567890123456"
+        })
+});
+```
+
+<br/>
+*AccountController.cs*
+
+```C#
+// Cookie:
+
+public IHttpActionResult Login()
+{
+    // todo: authenticate user
+
+    Request.GetOwinContext().Authentication.SignIn(new AuthenticationProperties()
+    {
+        IssuedUtc = DateTime.UtcNow,
+        ExpiresUtc = DateTime.UtcNow.AddSeconds(5),
+        IsPersistent = true
+    },
+    new ClaimsIdentity(BuildCustomClaims(), DefaultAuthenticationTypes.ApplicationCookie));
+
+    return Ok();
+}
+
+public IHttpActionResult Logout()
+{
+    Request.GetOwinContext().Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
+    return Ok();
+}
+```
