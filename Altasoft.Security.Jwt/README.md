@@ -133,8 +133,7 @@ public async Task<IActionResult> Login()
 {
     // todo: authenticate user
 
-    await Request.HttpContext.Authentication.SignInAsync(
-        jwtAuthConfig.Cookie.AuthenticationScheme,
+    await Request.HttpContext.Authentication.SignInAsync("Cookie"
         new ClaimsPrincipal(new ClaimsIdentity(BuildCustomClaims())),
         new AuthenticationProperties()
         {
