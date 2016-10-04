@@ -23,8 +23,10 @@ namespace JwtBearerAndCookieSample.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login([FromBody]string userName, [FromBody]string password)
+        public async Task<IActionResult> Login()
         {
+            // todo: authenticate user
+
             await Request.HttpContext.Authentication.SignInAsync(
                 jwtAuthConfig.Cookie.AuthenticationScheme,
                 new ClaimsPrincipal(new ClaimsIdentity(BuildCustomClaims())),
@@ -45,8 +47,10 @@ namespace JwtBearerAndCookieSample.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult Token([FromBody]string userName, [FromBody]string password)
+        public IActionResult Token()
         {
+            // todo: authenticate user
+
             var claims = BuildCustomClaims();
 
             var now = DateTime.UtcNow;

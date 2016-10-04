@@ -13,11 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A08A12A4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{27E0900A-1D47-4BFC-8A45-5CF53CD33DA4}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "JwtBearerAndCookieSample", "samples\JwtBearerAndCookieSample\JwtBearerAndCookieSample.xproj", "{45DFA348-1198-4A4A-AE04-D07A9D855D09}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetCore.JwtBearerAndCookieSample", "samples\JwtBearerAndCookieSample\AspNetCore.JwtBearerAndCookieSample.xproj", "{45DFA348-1198-4A4A-AE04-D07A9D855D09}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SimpleJwtExample", "samples\SimpleJwtExample\SimpleJwtExample.xproj", "{DAFA1D83-1906-4689-88F1-2AFCCF791521}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Altasoft.Owin.Authentication.Jwt", "src\Altasoft.Owin.Authentication.Jwt\Altasoft.Owin.Authentication.Jwt.xproj", "{7E8F490E-388D-4C86-93DC-5F90762B085F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNet.JwtBearerAndCookieSample", "samples\AspNet.JwtBearerAndCookieSample\AspNet.JwtBearerAndCookieSample.csproj", "{CC20817D-8598-4DD2-B43A-9424FBD6DE64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{7E8F490E-388D-4C86-93DC-5F90762B085F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E8F490E-388D-4C86-93DC-5F90762B085F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E8F490E-388D-4C86-93DC-5F90762B085F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC20817D-8598-4DD2-B43A-9424FBD6DE64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC20817D-8598-4DD2-B43A-9424FBD6DE64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC20817D-8598-4DD2-B43A-9424FBD6DE64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC20817D-8598-4DD2-B43A-9424FBD6DE64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +61,6 @@ Global
 		{45DFA348-1198-4A4A-AE04-D07A9D855D09} = {27E0900A-1D47-4BFC-8A45-5CF53CD33DA4}
 		{DAFA1D83-1906-4689-88F1-2AFCCF791521} = {27E0900A-1D47-4BFC-8A45-5CF53CD33DA4}
 		{7E8F490E-388D-4C86-93DC-5F90762B085F} = {A58CF241-B2AC-4953-86CB-45610C0D00C0}
+		{CC20817D-8598-4DD2-B43A-9424FBD6DE64} = {27E0900A-1D47-4BFC-8A45-5CF53CD33DA4}
 	EndGlobalSection
 EndGlobal
