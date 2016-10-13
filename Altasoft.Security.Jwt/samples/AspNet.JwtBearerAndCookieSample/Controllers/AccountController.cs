@@ -9,7 +9,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Altasoft.IdentityModel.Tokens.Jwt;
 
-namespace AspNet.JwtBearerAndCookieSample.Controllers
+namespace JwtBearerAndCookieSample.Controllers
 {
     public class AccountController : ApiController
     {

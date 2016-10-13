@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 
-namespace AspNet.JwtBearerAndCookieSample
+namespace JwtBearerAndCookieSample
 {
     public static class WebApiConfig
     {

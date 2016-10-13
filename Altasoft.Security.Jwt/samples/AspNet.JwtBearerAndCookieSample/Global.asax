@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="AspNet.JwtBearerAndCookieSample.WebApiApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="JwtBearerAndCookieSample.WebApiApplication" Language="C#" %>

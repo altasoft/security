@@ -8,7 +8,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
 
-namespace AspNet.JwtBearerAndCookieSample
+namespace JwtBearerAndCookieSample
 {
     public partial class Startup
     {

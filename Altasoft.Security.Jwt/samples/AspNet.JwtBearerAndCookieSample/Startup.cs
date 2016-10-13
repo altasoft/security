@@ -1,9 +1,9 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(AspNet.JwtBearerAndCookieSample.Startup))]
+[assembly: OwinStartup(typeof(JwtBearerAndCookieSample.Startup))]
 
-namespace AspNet.JwtBearerAndCookieSample
+namespace JwtBearerAndCookieSample
 {
     public partial class Startup
     {

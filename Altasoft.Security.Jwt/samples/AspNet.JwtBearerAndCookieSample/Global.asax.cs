@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
 
-namespace AspNet.JwtBearerAndCookieSample
+namespace JwtBearerAndCookieSample
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

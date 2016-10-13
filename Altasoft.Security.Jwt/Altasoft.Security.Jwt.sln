@@ -13,9 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A08A12A4
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{27E0900A-1D47-4BFC-8A45-5CF53CD33DA4}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetCore.JwtBearerAndCookieSample", "samples\JwtBearerAndCookieSample\AspNetCore.JwtBearerAndCookieSample.xproj", "{45DFA348-1198-4A4A-AE04-D07A9D855D09}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNetCore.JwtBearerAndCookieSample", "samples\AspNetCore.JwtBearerAndCookieSample\AspNetCore.JwtBearerAndCookieSample.xproj", "{45DFA348-1198-4A4A-AE04-D07A9D855D09}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SimpleJwtExample", "samples\SimpleJwtExample\SimpleJwtExample.xproj", "{DAFA1D83-1906-4689-88F1-2AFCCF791521}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Console.JwtSample", "samples\Console.JwtSample\Console.JwtSample.xproj", "{DAFA1D83-1906-4689-88F1-2AFCCF791521}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Altasoft.Owin.Authentication.Jwt", "src\Altasoft.Owin.Authentication.Jwt\Altasoft.Owin.Authentication.Jwt.xproj", "{7E8F490E-388D-4C86-93DC-5F90762B085F}"
 EndProject
