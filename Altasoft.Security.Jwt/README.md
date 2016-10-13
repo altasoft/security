@@ -61,6 +61,95 @@ var token = JWTTokenProvider.ValidateToken(jwtTokenString, new TokenValidationPa
 
 ### Usage
 
+*Startup.cs*
+```C#
+// Bearer:
+
+app.UseJwtBearerAuthentication(new JwtBearerOptions
+{
+    AutomaticAuthenticate = true,
+    AutomaticChallenge = true,
+    TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = JWTTokenProvider.GetSecurityKey("1234567890123456"),
+
+        ValidateIssuer = true,
+        ValidIssuer = "altasoft",
+
+        ValidateAudience = true,
+        ValidAudience = "any",
+
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.Zero
+    }
+});
+
+
+
+// Cookie:
+
+app.UseCookieAuthentication(new CookieAuthenticationOptions
+{
+    AutomaticAuthenticate = true,
+    AutomaticChallenge = true,
+    CookieName = "JWTCookie",
+    AuthenticationScheme = "Cookie",
+    SlidingExpiration = true,
+    ExpireTimeSpan = TimeSpan.FromSeconds(30),
+    TicketDataFormat = new JWTTicketCookieDataFormat(
+        new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = JWTTokenProvider.GetSecurityKey("1234567890123456"),
+
+            ValidateIssuer = true,
+            ValidIssuer = "altasoft",
+
+            ValidateAudience = true,
+            ValidAudience = "any",
+
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        },
+        new JWTCookieOptions()
+        {
+            AuthenticationScheme = "Cookie",
+            Issuer = "altasoft",
+            Audience = "any",
+            ExpiresInSeconds = 300,
+            SecretKey = "1234567890123456"
+        })
+});
+```
+
+<br/>
+*AccountController.cs*
+
+```C#
+// Cookie:
+
+public async Task<IActionResult> Login()
+{
+    // todo: authenticate user
+
+    await Request.HttpContext.Authentication.SignInAsync("Cookie"
+        new ClaimsPrincipal(new ClaimsIdentity(BuildCustomClaims())),
+        new AuthenticationProperties()
+        {
+            IssuedUtc = DateTime.UtcNow,
+            ExpiresUtc = DateTime.UtcNow.AddSeconds(300)
+        });
+
+    return Ok();
+}
+
+public async Task Logout()
+{
+    await HttpContext.Authentication.SignOutAsync(jwtAuthConfig.Cookie.AuthenticationScheme);
+}
+```
+
 
 <br/>
 ## JWT Token For ASP.NET
@@ -70,3 +159,100 @@ var token = JWTTokenProvider.ValidateToken(jwtTokenString, new TokenValidationPa
 > Install-Package Altasoft.Owin.Authentication.Jwt
 
 ### Usage
+
+*Startup.Auth.cs*
+```C#
+// Bearer:
+
+app.UseOAuthBearerTokens(new OAuthAuthorizationServerOptions
+{
+    AuthenticationType = OAuthDefaults.AuthenticationType,
+    AllowInsecureHttp = true,
+    AccessTokenFormat = new JWTTicketDataFormat(
+        new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            // for bearer must be LOCAL AUTHORITY
+            ValidIssuer = "LOCAL AUTHORITY",
+
+            ValidateAudience = true,
+            ValidAudience = "any",
+
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = JWTTokenProvider.GetSecurityKey("1234567890123456"),
+
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        },
+        new JWTTicketOptions()
+        {
+            // for bearer must be LOCAL AUTHORITY
+            Issuer = "LOCAL AUTHORITY",
+            Audience = "any",
+            ExpiresInSeconds = 300,
+            SecretKey = "1234567890123456"
+        })
+});
+
+
+
+// Cookie:
+
+app.UseCookieAuthentication(new CookieAuthenticationOptions()
+{
+    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+    CookieName = "JWTCookie",
+    CookieHttpOnly = false,
+    SlidingExpiration = true,
+    TicketDataFormat = new JWTTicketCookieDataFormat(
+        new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = "altasoft",
+
+            ValidateAudience = true,
+            ValidAudience = "any",
+
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = JWTTokenProvider.GetSecurityKey("1234567890123456"),
+
+            ValidateLifetime = true,
+            ClockSkew = TimeSpan.Zero
+        },
+        new JWTCookieOptions()
+        {
+            Issuer = "altasoft",
+            Audience = "any",
+            ExpiresInSeconds = 300,
+            SecretKey = "1234567890123456"
+        })
+});
+```
+
+<br/>
+*AccountController.cs*
+
+```C#
+// Cookie:
+
+public IHttpActionResult Login()
+{
+    // todo: authenticate user
+
+    Request.GetOwinContext().Authentication.SignIn(new AuthenticationProperties()
+    {
+        IssuedUtc = DateTime.UtcNow,
+        ExpiresUtc = DateTime.UtcNow.AddSeconds(5),
+        IsPersistent = true
+    },
+    new ClaimsIdentity(BuildCustomClaims(), DefaultAuthenticationTypes.ApplicationCookie));
+
+    return Ok();
+}
+
+public IHttpActionResult Logout()
+{
+    Request.GetOwinContext().Authentication.SignOut(CookieAuthenticationDefaults.AuthenticationType);
+    return Ok();
+}
+```
