@@ -8,7 +8,7 @@
 
 
 <br/>
-## JWT Token Provider
+## [JWT Token Provider](wiki)
 
 Library contanins JWT token generator based on Microsoft's implementation (System.IdentityModel.Tokens.Jwt).
 
