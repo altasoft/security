@@ -1,11 +1,11 @@
-### [JSON Web Token (JWT) for .NET.](https://github.com/altasoft/security/wiki)
+### JSON Web Token (JWT) for .NET.
 
 *The library supports generating and validating [JSON Web Tokens](https://tools.ietf.org/html/rfc7519).*  
 *See [jwt.io](https://jwt.io) for more information on JWT.*  
 _How to use libraries - See **[wiki](https://github.com/altasoft/security/wiki)** and various examples containing in the project._  
 
 <br/>
-**[JWT Token Provider](https://github.com/altasoft/security/wiki/JWT-Token-Provider)** [![NuGet Version](https://img.shields.io/nuget/v/Altasoft.IdentityModel.Tokens.Jwt.svg)](https://www.nuget.org/packages/Altasoft.IdentityModel.Tokens.Jwt)
+**JWT Token Provider _([wiki](https://github.com/altasoft/security/wiki/JWT-Token-Provider))_** [![NuGet Version](https://img.shields.io/nuget/v/Altasoft.IdentityModel.Tokens.Jwt.svg)](https://www.nuget.org/packages/Altasoft.IdentityModel.Tokens.Jwt)
 
 Library contanins JWT token generator based on Microsoft's implementation (System.IdentityModel.Tokens.Jwt).
 
