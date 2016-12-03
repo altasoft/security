@@ -5,7 +5,7 @@
 _How to use libraries - See **[wiki](https://github.com/altasoft/security/wiki)** and various examples containing in the project._  
 
 <br/>
-### [JWT Token Provider](https://github.com/altasoft/security/wiki/JWT-Token-Provider)
+[JWT Token Provider](https://github.com/altasoft/security/wiki/JWT-Token-Provider)
 
 Library contanins JWT token generator based on Microsoft's implementation (System.IdentityModel.Tokens.Jwt).
 
@@ -14,14 +14,14 @@ Installation [![NuGet Version](https://img.shields.io/nuget/v/Altasoft.IdentityM
 > Install-Package Altasoft.IdentityModel.Tokens.Jwt
 
 <br/>
-### [JWT Token For ASP.NET](https://github.com/altasoft/security/wiki/JWT-Token-For-ASP.NET)
+[JWT Token For ASP.NET](https://github.com/altasoft/security/wiki/JWT-Token-For-ASP.NET)
 
 Installation [![NuGet Version](https://img.shields.io/nuget/v/Altasoft.Owin.Authentication.Jwt.svg)](https://www.nuget.org/packages/Altasoft.Owin.Authentication.Jwt.Jwt)
 
 > Install-Package Altasoft.Owin.Authentication.Jwt
 
 <br/>
-### [JWT Token For ASP.NET Core](https://github.com/altasoft/security/wiki/JWT-Token-For-ASP.NET-Core)
+[JWT Token For ASP.NET Core](https://github.com/altasoft/security/wiki/JWT-Token-For-ASP.NET-Core)
 
 Installation [![NuGet Version](https://img.shields.io/nuget/v/Altasoft.AspNetCore.Authentication.Jwt.svg)](https://www.nuget.org/packages/Altasoft.AspNetCore.Authentication.Jwt)
 
