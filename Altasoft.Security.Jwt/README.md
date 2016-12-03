@@ -2,7 +2,7 @@
 
 *The library supports generating and validating [JSON Web Tokens](https://tools.ietf.org/html/rfc7519).*  
 *See [jwt.io](https://jwt.io) for more information on JWT.*  
-*How to use libraries - See ***[wiki](https://github.com/altasoft/security/wiki)** and various examples containing in the project.*  
+*How to use libraries - See ***[wiki](https://github.com/altasoft/security/wiki)*** and various examples containing in the project.*  
 
 <br/>
 ### [JWT Token Provider](https://github.com/altasoft/security/wiki/JWT-Token-Provider)
