@@ -22,7 +22,7 @@ Library contanins JWT token generator based on Microsoft's implementation (Syste
 
 <br/>
 
-Package | Build status | NuGet |
+Package | Build Status | NuGet |
 ------- | ------------ | ----- |
 [Altasoft.IdentityModel.Tokens.Jwt](src/Altasoft.IdentityModel.Tokens.Jwt) |  | [![NuGet Version](https://img.shields.io/nuget/v/Altasoft.IdentityModel.Tokens.Jwt.svg)](https://www.nuget.org/packages/Altasoft.IdentityModel.Tokens.Jwt) |
 [Altasoft.Owin.Authentication.Jwt](src/Altasoft.Owin.Authentication.Jwt) |  | [![NuGet Version](https://img.shields.io/nuget/v/Altasoft.Owin.Authentication.Jwt.svg)](https://www.nuget.org/packages/Altasoft.Owin.Authentication.Jwt.Jwt) |
