@@ -1,5 +1,5 @@
-﻿using System.Web.Http;
-using Microsoft.Owin.Security.OAuth;
+﻿using Microsoft.Owin.Security.OAuth;
+using System.Web.Http;
 
 namespace JwtBearerAndCookieSample
 {

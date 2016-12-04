@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Altasoft.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.Cookies;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Http;
-using Microsoft.AspNet.Identity;
-using Microsoft.Owin.Security;
-using Microsoft.Owin.Security.Cookies;
-using Altasoft.IdentityModel.Tokens.Jwt;
 
 namespace JwtBearerAndCookieSample.Controllers
 {
